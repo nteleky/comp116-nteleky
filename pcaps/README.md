@@ -147,7 +147,7 @@ output can be viewed in the text file.
 
 ***19. Provide a summary of the all protocols used. What was the most popular protocol used? Describe your methodology.***
 
-*For details of all protocols used, see set2protocols.png*
+![Alt text](set2protocol.png)
 
 TCP Was the most popular protocol. This was found by going into wireshark and running
 statistics on the entire pcap to analyze protocols used. Results are shown in the set2protocols.png.
