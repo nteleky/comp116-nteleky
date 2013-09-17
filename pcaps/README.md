@@ -83,12 +83,15 @@ acb.jpg
 
 ***11. How many plaintext username-password pairs are there in this packet set?***
 
-
+I found twelve, four of which were more detailed than USER: public, PASS: [blank].
 
 
 ***12. Briefly describe how you found the username-password pairs.***
 
+Using ettercap and etterlog, I managed to pull data from set2.pcap:
 
+`ettercap -r set2.pcap -Tq -l set2users //creates a .eci file with summary of data.`
+`etterlog -p set2users.eci > set2pairs.txt //analyzes user/pass pairs and places into a txt file.`
 
 
 ***13. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.***
