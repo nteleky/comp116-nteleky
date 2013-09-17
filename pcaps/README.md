@@ -124,6 +124,7 @@ First, because that's not exactly 'good form' in terms of internet trust and bei
 Second, because there's no easy way of telling what it is we'd be logging into, which could
 compromise our own security -- some of these could be tricks designed to get people at a place
 like defcon to log in, not knowing that they're giving their own personal information away.
+Third, because it's illegal.
 
 Moral: DON'T TRUST PEOPLE AT DEFCON.
 
