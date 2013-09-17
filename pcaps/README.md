@@ -100,7 +100,11 @@ Using ettercap and etterlog, I managed to pull data from set2.pcap:
 
  62.173.185.22    TCP 110    USER: brewer       PASS: 1qazxsw209simona12 
 
+ 67.128.149.178   TCP 110    USER: mbergeson@hjnews.com         PASS: mb123on
 
+109.168.119.166 (mail.cutaway.it) TCP 143    USER: dmartini@cutaway.it         PASS: se1lasa 
+
+144.122.144.179 (pop3.metu.edu.tr) TCP 110    USER: e129286    PASS: 4.Ekkama
 
 ***14. Of all the plaintext username-password pairs that you found, how many of them are legitimate? That is, the username-password was valid, access successfully granted?***
 
@@ -142,7 +146,10 @@ output can be viewed in the text file.
 
 ***19. Provide a summary of the all protocols used. What was the most popular protocol used? Describe your methodology.***
 
+*For details of all protocols used, see set2protocols.png*
 
+TCP Was the most popular protocol. This was found by going into wireshark and running
+statistics on the entire pcap to analyze protocols used. Results are shown in the set2protocols.png.
 
 
 ***20. A fun question: what other interesting things did you find in this PCAP set (e.g., files)?***
