@@ -10,8 +10,11 @@ Assignment 1: Packet Sleuth
 In this assignment, we were given two .pcap files and were asked to analyze them, then answer the questions below. To analyze, I used the following tool(s):
 
 * Wireshark
+* Ettercap
+* Etterlog
+* dsniff
 
-This assignment took me __ hours to complete.
+This assignment took me 6 hours to complete.
 
 Analysis below.
 
@@ -93,34 +96,47 @@ Using ettercap and etterlog, I managed to pull data from set2.pcap:
 `ettercap -r set2.pcap -Tq -l set2users //creates a .eci file with summary of data.`
 `etterlog -p set2users.eci > set2pairs.txt //analyzes user/pass pairs and places into a txt file.`
 
-
 ***13. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.***
 
+ 62.173.185.22    TCP 110    USER: brewer       PASS: 1qazxsw209simona12 
 
 
 
 ***14. Of all the plaintext username-password pairs that you found, how many of them are legitimate? That is, the username-password was valid, access successfully granted?***
 
-
+It appears that all were successful that I could find with ettercap.
 
 
 ***15. How did you verified the successful username-password pairs?***
 
+Etterlog placed an '*' next to an account representing a failed logon attempt. If the 
+listed pair didn't have a '*' next to it, it was a legitimate logon attempt.
 
 
 
 ***16. In a few words, explain why I asked you not to log on to websites or services associated with the username-password pairs that you found.***
 
+First, because that's not exactly 'good form' in terms of internet trust and being a 'good guy.'
+Second, because there's no easy way of telling what it is we'd be logging into, which could
+compromise our own security -- some of these could be tricks designed to get people at a place
+like defcon to log in, not knowing that they're giving their own personal information away.
 
+Moral: DON'T TRUST PEOPLE AT DEFCON.
 
 
 ***17. What advice would you give to the owners of the username-password pairs that you found so their account information would not be revealed "in-the-clear" in the future?***
 
-
+1.) Be sure to use https:// when logging onto sites via a browsers.
+2.) Don't transfer files over insecure protocols such as FTP.
+3.) Don't have electronics on and connected to wifi at Defcon unless you want to lose your identity.
 
 
 ***18. Provide a listing of all IP addresses with corresponding hosts (hostname + domain name) that are in this PCAP set. Describe your methodology.***
 
+*See 'set2hosts.txt'*
+
+I used etterlog to list all IP Addresses and, where applicable, hostnames for those IPs. The 
+output can be viewed in the text file.
 
 
 
@@ -131,6 +147,7 @@ Using ettercap and etterlog, I managed to pull data from set2.pcap:
 
 ***20. A fun question: what other interesting things did you find in this PCAP set (e.g., files)?***
 
+Several pdf documents that appear to be things like presentation exports, examples of how to grab passwords from a network (ironic), some images, and other interesting files. All of these could be grabbed using network tools like wireshark and tcp dump.
 
 
 
