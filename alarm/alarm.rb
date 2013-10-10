@@ -1,3 +1,9 @@
+########################
+# Author: Nick Teleky
+# Comp116: Web Security
+# Assignment 2
+########################
+
 require 'rubygems'
 require 'packetfu'
 
@@ -21,20 +27,60 @@ def xmas_scan?(pkt)
 		return false
 	end
 end
-=begin
+
+# Parse through the payload. If "nmap" is found in the payload, then
+# this is an nmap scan.
 def nmap_scan?(pkt)
-	payload = pkt.payload.to_s
-	if payload.include? "nmap"
+	payload = pkt.payload
+	nmap = payload.scan(/nmap/i)
+	if nmap.length > 0
 		return true
 	else
 		return false
 	end
 end
-=end
+
+# Parse through the payload. If "nmap" is found in the payload, then
+# this is an nmap scan.
+def pass_scan?(pkt)
+	payload = pkt.tcp_header.body
+	pass = payload.scan(/PASS/i)
+	if pass.length > 0
+		return true
+	else
+		return false
+	end
+end
+
+def credit_scan?(pkt)
+	payload = pkt.tcp_header.body
+	ver = payload.scan(/4\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}/i)
+	disc = payload.scan(/6011(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}/i)
+	mast = payload.scan(/5\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}/i)
+	amer = payload.scan(/3\d{3}(\s|-)?\d{6}(\s|-)?\d{5}/i)
+	if (ver.length+disc.length+mast.length+amer.length) > 0
+		return true
+	else
+		return false
+	end
+end
+
+def xss_scan?(pkt)
+	payload = pkt.tcp_header.body
+	xss = payload.scan(/<script>\s*(alert|window.location)/i)
+	if xss.length > 0
+		return true
+	else
+		return false
+	end
+end
+
 # alert printing function
 def print_alert(pkt, attack, num)
 	print "#{num}. ALERT: #{attack} is detected from #{pkt.ip_saddr} (#{pkt.proto.last})!\n"
 end
+
+
 
 
 # Main part of the code below
@@ -57,20 +103,32 @@ incident_number = 0
 		print_alert pkt, "XMAS scan", incident_number
 		next
 	end
-=begin
+
 	# Check for NMAP scan
-	if nmap_scan?(pkt)
+	if pkt.proto.last == "TCP" && nmap_scan?(pkt)
 		incident_number = incident_number + 1
 		print_alert pkt, "NMAP scan", incident_number
 		next
 	end
-=end
-	# Check for 
-	# print "Packet: " + packet + "END \n\n\n\n"
+
+	# Check for passwords
+	if pkt.proto.last == "TCP" && pass_scan?(pkt)
+		incident_number = incident_number + 1
+		print_alert pkt, "A clear-text password", incident_number
+		next
+	end
+
+	# Check for credit card numbers
+	if pkt.proto.last == "TCP" && credit_scan?(pkt)
+		incident_number = incident_number + 1
+		print_alert pkt, "A clear-text credit-card number", incident_number
+		next
+	end
+
+	# Check for XSS
+	if pkt.proto.last == "TCP" && xss_scan?(pkt)
+		incident_number = incident_number + 1
+		print_alert pkt, "A XSS attack", incident_number
+		next
+	end
  end
-
-# stream.show_live()
-
-# Set boolean like scanFound
-# create several methods that return booleans 
-#if scanFound is true, then skip the other ones
