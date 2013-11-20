@@ -1,0 +1,104 @@
+Assignment 5: Forensics
+===================================
+
+#####Authors: Nick Teleky and Matt Brennan
+#####Comp116: Computer Security
+#####November 20, 2013
+
+- - - - - - - - - - - - - - - - - - - - - - - -
+
+###Part 1: Images
+
+Image A: We started by using steghide, and ran the following command on Image A: 
+
+`steghide extract -sf a.jpg`
+
+We were then prompted for a password, and we started by trying a blank password. This worked, and we were able to get
+an image of Norman's beautiful, smiling face called prado.jpg (attached in the repo).
+
+Image B: We started by trying a dictionary attack on the password by using a bash script and a wordlist (attached to the repo).
+
+Image C: After running diff on c.jpg and b.jpg, we found that Image B and C are the same. Both are also different from Image A.
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+###Part 2: SDCard Image
+
+* __What is/are the disk format(s) of the SD card?__
+
+There are two partitions on this disk:
+ - Win95 Fat32
+ - Linux
+
+* __Is there a phone carrier involved?__
+
+Yes - this appears to be an Android phone.
+
+* __What operating system, including version number, is being used? Please elaborate how you determined this information.__
+
+Kali Linux 1.0
+
+We determined this by looking at the os-release file in /etc/, which contained information about the operating system being
+run on the system.
+
+* __What other applications are installed? Please elaborate how you determined this information.__
+
+To find installed applications, we started looking around the file system of the phone and found several suspicious apps in /etc/:
+
+BeEF-XSS
+SubVersion
+UnicornScan
+UPower
+Wireshark
+Ettercap
+Cowsay
+
+* __Is there a root password? If so, what is it?__
+
+Yes; we found the passwd files in /etc/ and ran them through John The Ripper.
+
+* __Are there any additional user accounts on the system?__
+
+There appear to be two users:
+
+root
+john
+
+* __List some of the incriminating evidence that you found. Please elaborate where and how you uncovered the evidence.__
+
+Using Autopsy, we explored the file system of the two partitions. In the Linux partition, we found a folder of pictures. Inside were pictures titled
+ old.jpg. After opening them, we found that they were all pictures of a young Celine Dion (determined by downloading several of the images, 
+ Google searching for them, and finding that they all pointed to Celine Dion). We also found two setlists for CelineDion, which were in the Documents
+ folder. Finally, we found a list of upcoming tour dates for 2013 and 2014, which after checking, were found to be dates that Celine is performing
+ at Caesers Palace in Las Vegas, NV.
+
+* __Did the suspect move or try to delete any files before his arrest? Please list the name(s) of the file(s) and any indications of their contents that you can find.__
+
+Yes, he did.
+The suspect deleted the following folder:
+
+.fseventsd/
+
+which contained the following:
+
+636573374502a64b
+636573374502a64c
+fseventsd-uuid
+
+
+The suspect also deleted the /$OrphanFiles/ folder, which contained files that looked like a video converter/compressor.
+
+Three image files titled 'new.jpg' and 'reciept.pdf' were found deleted and unrecoverable. They were created on Jan 2, 1970 at 8:34 PM EST. 
+
+The suspect further deleted a shadow file.
+
+Finally, it looks like the suspect attempted to delete all the files within the /home/ folder.
+
+* __Are there any encrypted files? If so, list the contents and a brief description of how you obtained the contents.__
+
+* __Did the suspect at one point went to see this celebrity? If so, note the date and location where the suspect met the celebrity? Please elaborate how you determined this information.__
+
+* __Is there anything peculiar with the files on the system?__
+
+* __Who is the celebrity that the suspect has been stalking?__
+Celine Dion
