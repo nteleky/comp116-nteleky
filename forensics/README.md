@@ -96,9 +96,16 @@ Finally, it looks like the suspect attempted to delete all the files within the 
 
 * __Are there any encrypted files? If so, list the contents and a brief description of how you obtained the contents.__
 
+
+
 * __Did the suspect at one point went to see this celebrity? If so, note the date and location where the suspect met the celebrity? Please elaborate how you determined this information.__
 
+
+
 * __Is there anything peculiar with the files on the system?__
+
+In /www/, there is an index.html that indicates that the suspect is running a webserver on his mobile device. Further, we found several 
+applications that look like they would be useful in running a webserver on an Android phone.
 
 * __Who is the celebrity that the suspect has been stalking?__
 Celine Dion
