@@ -1,9 +1,9 @@
 Assignment 5: Forensics
 ===================================
 
-#####Authors: Nick Teleky and Matt Brennan
-#####Comp116: Computer Security
-#####November 20, 2013
+#####Authors: Nick Teleky and Matt Brennan#####
+#####Comp116: Computer Security#####
+#####November 20, 2013#####
 
 - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -32,14 +32,17 @@ There are two partitions on this disk:
 
 * __Is there a phone carrier involved?__
 
-Yes - this appears to be an Android phone.
+Probably not. After looking at the .bash_history file on the linux partition, the user installs raspi-config, indicating that this
+OS is running on a Raspberry Pi. This also indicates that the user installed the Kali Linux distrubution, which is like a hacker's 
+tool-kit, and probably couldn't run its full functionality on a phone. While it is possible to install Kali on Android phones, it
+seems like this is most likely operating on a raspberry pi and not on a phone.
 
 * __What operating system, including version number, is being used? Please elaborate how you determined this information.__
 
 Kali Linux 1.0
 
 We determined this by looking at the os-release file in /etc/, which contained information about the operating system being
-run on the system.
+run on the system. This was confirmed by the .bash_history
 
 * __What other applications are installed? Please elaborate how you determined this information.__
 
@@ -52,10 +55,12 @@ UPower
 Wireshark
 Ettercap
 Cowsay
+Tor
 
 * __Is there a root password? If so, what is it?__
 
 Yes; we found the passwd files in /etc/ and ran them through John The Ripper.
+root/toor
 
 * __Are there any additional user accounts on the system?__
 
@@ -72,6 +77,9 @@ Using Autopsy, we explored the file system of the two partitions. In the Linux p
  folder. Finally, we found a list of upcoming tour dates for 2013 and 2014, which after checking, were found to be dates that Celine is performing
  at Caesers Palace in Las Vegas, NV.
 
+We also looked in /2/root/ and found the .bash_history file. Upon opening, we found that the suspect previously tried to remove most user files on
+ his computer, possibly to avoid detection.
+
 * __Did the suspect move or try to delete any files before his arrest? Please list the name(s) of the file(s) and any indications of their contents that you can find.__
 
 Yes, he did.
@@ -85,14 +93,15 @@ which contained the following:
 636573374502a64c
 fseventsd-uuid
 
-
 The suspect also deleted the /$OrphanFiles/ folder, which contained files that looked like a video converter/compressor.
 
 Three image files titled 'new.jpg' and 'reciept.pdf' were found deleted and unrecoverable. They were created on Jan 2, 1970 at 8:34 PM EST. 
 
 The suspect further deleted a shadow file.
 
-Finally, it looks like the suspect attempted to delete all the files within the /home/ folder.
+Finally, it looks like the suspect attempted to delete all the files within the /root/ folder, notably Documents, Videos, Pictures, Music, 
+ Downloads, Public, and Template folders. He then tried to remake the Documents and Pictures folder. He also tried to change Dropbox.zip to .dropbox.zip,
+  to make the file a hidden file on the computer, and then remove the visible dropbox file.
 
 * __Are there any encrypted files? If so, list the contents and a brief description of how you obtained the contents.__
 
