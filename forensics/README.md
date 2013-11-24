@@ -103,14 +103,14 @@ There were a lot of files that at some point had been deleted off the system, in
  compressor or converter, a handful of applications, and a few system files.
 Right before the suspect's arrest though, the suspect ran a number of terminal commands to ostensibly remove incriminating files. After looking at 
 the .bash_history, we found that the suspect started by deleting several folders out of the root folder:
-
-Documents
-Videos
-Pictures
-Music
-Downloads
-Public
-Template
+    
+Documents  
+Videos  
+Pictures  
+Music  
+Downloads  
+Public  
+Template  
 
 
 Three image files titled 'new.jpg' and 'reciept.pdf' were found deleted and unrecoverable. They were created on Jan 2, 1970 at 8:34 PM EST. 
