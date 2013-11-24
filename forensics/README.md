@@ -33,7 +33,8 @@ There are two partitions on this disk:
 * __Is there a phone carrier involved?__
 
 Probably not. After looking at the .bash_history file on the linux partition, the user installs raspi-config, indicating that this
-OS is running on a Raspberry Pi. This also indicates that the user installed the Kali Linux distrubution, which is like a hacker's 
+OS is running on a Raspberry Pi. Further, in /usr/bin, there is a list of applications that have been installed; among them are config
+apps for an Arduino.  The .bash_history file also indicates that the user installed the Kali Linux distrubution, which is like a hacker's 
 tool-kit, and probably couldn't run its full functionality on a phone. While it is possible to install Kali on Android phones, it
 seems like this is most likely operating on a raspberry pi and not on a phone.
 
@@ -46,9 +47,24 @@ run on the system. This was confirmed by the .bash_history
 
 * __What other applications are installed? Please elaborate how you determined this information.__
 
-To find installed applications, we started looking around the file system of the phone and found several suspicious apps in /etc/:
+To find installed applications, we looked in /usr/bin on the linux partition. We found a lot of apps that, after Google searching them,
+ are typically used for security purposes (password cracking, port and network scanning, encryption and decryption, private browsing, etc).
+ Here is a small list of some of them:
 
+Arduino
+Autopsy
+Blind Elephant
 BeEF-XSS
+BurpSuite
+ClusterDB
+Exploit6
+FindMyHash
+iCat-SleuthKit
+Msfcli - Metasploit
+Paros
+SoCat
+TraceRoute
+WPSScan
 SubVersion
 UnicornScan
 UPower
@@ -59,7 +75,8 @@ Tor
 
 * __Is there a root password? If so, what is it?__
 
-Yes; we found the passwd files in /etc/ and ran them through John The Ripper.
+Yes; we found the passwd files in /etc/ and ran them through John The Ripper (without needing a wordlist):
+
 root/toor
 
 * __Are there any additional user accounts on the system?__
@@ -82,18 +99,19 @@ We also looked in /2/root/ and found the .bash_history file. Upon opening, we fo
 
 * __Did the suspect move or try to delete any files before his arrest? Please list the name(s) of the file(s) and any indications of their contents that you can find.__
 
-Yes, he did.
-The suspect deleted the following folder:
+There were a lot of files that at some point had been deleted off the system, including everying in $OrphanFiles$, which appeared to be a video
+ compressor or converter, a handful of applications, and a few system files.
+Right before the suspect's arrest though, the suspect ran a number of terminal commands to ostensibly remove incriminating files. After looking at 
+the .bash_history, we found that the suspect started by deleting several folders out of the root folder:
 
-.fseventsd/
+Documents
+Videos
+Pictures
+Music
+Downloads
+Public
+Template
 
-which contained the following:
-
-636573374502a64b
-636573374502a64c
-fseventsd-uuid
-
-The suspect also deleted the /$OrphanFiles/ folder, which contained files that looked like a video converter/compressor.
 
 Three image files titled 'new.jpg' and 'reciept.pdf' were found deleted and unrecoverable. They were created on Jan 2, 1970 at 8:34 PM EST. 
 
