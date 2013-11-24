@@ -111,28 +111,38 @@ Music
 Downloads  
 Public  
 Template  
+   
+The suspect then tried to remake the Documents and Pictures folders, according to the bash history.  
+
+The suspect then compressed their Dropbox, then changed Dropbox.zip to .dropbox.zip (to make it a hidden file), then removed the visible dropbox 
+file.  
+
+Then, the suspect deleted new1.jpg, new2.jpg, new3.jpg, and receipt.pdf from the system, immediately before being arrested. The 'new' JPEGS are likely 
+new pictures of the celebrity (as another folder contained several JPEGS titled old1.jpg, etc.). Receipt.pdf likely contained a receipt from when the 
+suspect went to see the celebrity.
+
+* __Are there any encrypted files? If so, list the contents and a brief description of how you obtained the contents.__  
 
 
-Three image files titled 'new.jpg' and 'reciept.pdf' were found deleted and unrecoverable. They were created on Jan 2, 1970 at 8:34 PM EST. 
 
-The suspect further deleted a shadow file.
+* __Did the suspect at one point went to see this celebrity? If so, note the date and location where the suspect met the celebrity? Please elaborate how you determined this information.__  
 
-Finally, it looks like the suspect attempted to delete all the files within the /root/ folder, notably Documents, Videos, Pictures, Music, 
- Downloads, Public, and Template folders. He then tried to remake the Documents and Pictures folder. He also tried to change Dropbox.zip to .dropbox.zip,
-  to make the file a hidden file on the computer, and then remove the visible dropbox file.
+Yes. The suspect, a Mr. Ming Chow, may have gone to see the celebrity at the following date and time:  
+Saturday, July 28, 2012 at 7:30 PM  
+Colosseum at Caesars Palace, Las Vegas, NV  
 
-* __Are there any encrypted files? If so, list the contents and a brief description of how you obtained the contents.__
+We found this by recovering deleted files with foremost. We were able to recover the receipt.pdf, which had a snapshot of a gmail message (seen below):  
 
-
-
-* __Did the suspect at one point went to see this celebrity? If so, note the date and location where the suspect met the celebrity? Please elaborate how you determined this information.__
-
+![Screenshot of receipt.pdf](receipt_snap.jpg)
 
 
 * __Is there anything peculiar with the files on the system?__
 
-In /www/, there is an index.html that indicates that the suspect is running a webserver on his mobile device. Further, we found several 
-applications that look like they would be useful in running a webserver on an Android phone.
+In /www/, there is an index.html that indicates that the suspect is running a webserver on this device. There are also many applications on the device 
+that would aid the suspect in running web servers or applications from the device. The Kali Linux OS is also peculiar, as it is a hacker's toolkit OS, 
+and thus contains many open source security applications that could aid the suspect in hacking or attempting to hack into the celebrity's computers, 
+email accounts, etc.
 
-* __Who is the celebrity that the suspect has been stalking?__
+* __Who is the celebrity that the suspect has been stalking?__  
+
 Celine Dion
