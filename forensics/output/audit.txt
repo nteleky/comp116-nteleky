@@ -1,0 +1,15 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Sun Nov 24 17:20:15 2013
+Invocation: foremost 
+Output directory: /Users/nteleky/Dropbox/Tufts/5 Fall 2013/Comp116/forensics/output
+Configuration file: /usr/local/etc/foremost.conf
+------------------------------------------------------------------
+File: stdin
+Start: Sun Nov 24 17:20:15 2013
+Length: Unknown
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+Interrupt received at Sun Nov 24 17:20:20 2013

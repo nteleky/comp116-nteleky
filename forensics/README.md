@@ -16,7 +16,9 @@ Image A: We started by using steghide, and ran the following command on Image A:
 We were then prompted for a password, and we started by trying a blank password. This worked, and we were able to get
 an image of Norman's beautiful, smiling face called prado.jpg (attached in the repo).
 
-Image B: We started by trying a dictionary attack on the password by using a bash script and a wordlist (attached to the repo).
+![prado.jpg](prado.jpg)
+
+Image B: We started by trying a dictionary attack on the password by using a bash script and a wordlist. We didn't find anything in this image.
 
 Image C: After running diff on c.jpg and b.jpg, we found that Image B and C are the same. Both are also different from Image A.
 
@@ -83,8 +85,8 @@ root/toor
 
 There appear to be two users:
 
-root
-john
+root  
+john  
 
 * __List some of the incriminating evidence that you found. Please elaborate where and how you uncovered the evidence.__
 
@@ -112,7 +114,7 @@ Downloads
 Public  
 Template  
    
-The suspect then tried to remake the Documents and Pictures folders, according to the bash history.  
+The suspect then tried to recreate the Documents and Pictures folders, according to the bash history.  
 
 The suspect then compressed their Dropbox, then changed Dropbox.zip to .dropbox.zip (to make it a hidden file), then removed the visible dropbox 
 file.  
@@ -123,6 +125,8 @@ suspect went to see the celebrity.
 
 * __Are there any encrypted files? If so, list the contents and a brief description of how you obtained the contents.__  
 
+It looks like the .Dropbox.zip file is encrypted. We ran TrueCrypt on this file for several hours and the only thing we were able to get out of it was 
+a configuration file. Other than that, the Dropbox.zip was empty.
 
 
 * __Did the suspect at one point went to see this celebrity? If so, note the date and location where the suspect met the celebrity? Please elaborate how you determined this information.__  
