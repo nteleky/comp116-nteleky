@@ -125,8 +125,9 @@ suspect went to see the celebrity.
 
 * __Are there any encrypted files? If so, list the contents and a brief description of how you obtained the contents.__  
 
-It looks like the .Dropbox.zip file is encrypted. We ran TrueCrypt on this file for several hours and the only thing we were able to get out of it was 
-a configuration file. Other than that, the Dropbox.zip was empty.
+It looks like the .Dropbox.zip file is encrypted. When running $file on the .zip file, we were told that it contained "data," which implies that it is likely encrypted. Also, trying to unzip the file did not work, it instead tried to zip the file. (NOTE: All other zip files did successfully unzip, which makes this one suspicious). Also, the user did try to hide the file as a system file by changing the name to begin with a period. 
+
+We ran many passwords against the file using TrueCrypt, as well as trying a picture (the one in the TrueCrypt folder of Celine Dion's face), as a keyfile. Unfortunately, we were not able to decrypt the file.
 
 
 * __Did the suspect at one point went to see this celebrity? If so, note the date and location where the suspect met the celebrity? Please elaborate how you determined this information.__  
